@@ -14,15 +14,20 @@ while True:
         print("End of video or error reading frame.")
         break
 
-    cv2.imshow("frame", frame)
+    cv2.imshow("RGB Color Detector", frame)
 
     b = frame[:, :, 0]  
-    g = frame[:, :, 1]  
+    #print(b)
+    g = frame[:, :, 1] 
+    #print(g) 
     r = frame[:, :, 2]  
+    #print(r)
 
     b_mean = np.mean(b)
     g_mean = np.mean(g)
     r_mean = np.mean(r)
+
+    print(b_mean, g_mean, r_mean)
 
     if b_mean > g_mean and b_mean > r_mean:
         print("Blue")
